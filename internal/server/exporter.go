@@ -6,6 +6,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+
+	"github.com/siangyeh8818/golang.exporter.alibabacloud/internal/api"
 )
 
 type Exporter struct {
@@ -47,8 +49,8 @@ func Run_Exporter_Server() {
 func NewExporter(metricsPrefix string) *Exporter {
 	account_balance := prometheus.NewGauge(prometheus.GaugeOpts{
 		Namespace: metricsPrefix,
-		Name:      "metrics1",
-		Help:      "This is a gauge metric example"})
+		Name:      "account_balance",
+		Help:      "This is a gauge metric"})
 
 	/*
 		gaugeVec := *prometheus.NewGaugeVec(prometheus.GaugeOpts{
@@ -66,7 +68,7 @@ func NewExporter(metricsPrefix string) *Exporter {
 func (e *Exporter) Collect(ch chan<- prometheus.Metric) {
 	//e.gauge.Set(float64(100))
 
-	e.account_balance.Set(api.callApi())
+	e.account_balance.Set(api.CallApi())
 	//e.gaugeVec.WithLabelValues("hello").Set(float64(0))
 	e.account_balance.Collect(ch)
 	//e.gaugeVec.Collect(ch)
