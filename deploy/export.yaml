@@ -45,5 +45,7 @@
               value: "YOUR KEY SECRET"
             - name: REGION_ID
               value: "cn-shanghai"
+            - name: Get_API_INTERNAL_TIME
+              value: "180m"              
               #YOur REGION_ID
               #https://www.alibabacloud.com/help/zh/doc-detail/40654.htm
