@@ -33,7 +33,7 @@
         spec:
           containers:
           - name: alibabacloud-exporter
-            image: siangyeh8818/alibabacloud-exporter:1.0
+            image: siangyeh8818/alibabacloud-exporter:1.1
             imagePullPolicy: Always
             ports:
             - containerPort: 8081
